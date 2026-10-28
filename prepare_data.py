@@ -1,17 +1,3 @@
-"""Build the clean, labelled dataset in data/ from the raw Sensor Logger exports in raw/.
-
-Each raw recording folder contains Accelerometer.csv and Gyroscope.csv (iPhone X,
-100 Hz, gravity removed). This script:
-  1. merges the two sensors on their shared nanosecond timestamp,
-  2. trims 0.5 s from each end (phone tap to start/stop the app),
-  3. resamples onto an exact 100 Hz grid (linear interpolation) to harmonise sampling,
-  4. writes data/train/<activity>/<activity>_NN.csv and data/test/*.csv.
-
-Test files (never used for training):
-  - the three continuous "longer_videos" sessions (standing -> walking -> jumping -> still),
-    labelled per sample using segment boundaries read from the signal + video
-  - the standing clip recorded on 2026-10-23 (different day from the training session)
-"""
 import glob
 import os
 import re
@@ -21,10 +7,11 @@ import pandas as pd
 
 RAW = os.path.join("raw", "data collected")
 OUT = "data"
-FS = 100  # target sampling rate (Hz)
-TRIM = 0.5  # seconds trimmed from each end
+FS = 100
+# cut the tap on the screen at the start and end of each recording
+TRIM = 0.5
 
-# Segment boundaries (seconds from start of recording) for the continuous test sessions.
+# start/end seconds of each activity in the long test recordings
 LONG_SEGMENTS = {
     "longer_videos_1": [("standing", 0, 9.0), ("walking", 9.0, 18.5), ("jumping", 18.5, 30.0), ("still", 30.0, 1e9)],
     "longer_videos_2": [("standing", 0, 10.5), ("walking", 10.5, 21.5), ("jumping", 21.5, 34.5), ("still", 34.5, 1e9)],
@@ -33,7 +20,6 @@ LONG_SEGMENTS = {
 
 
 def load_recording(folder):
-    """Merge accelerometer + gyroscope, trim edges, resample to an exact FS grid."""
     acc = pd.read_csv(os.path.join(folder, "Accelerometer.csv"))
     gyr = pd.read_csv(os.path.join(folder, "Gyroscope.csv"))
     acc = acc.rename(columns={c: f"acc_{c}" for c in "xyz"})
@@ -41,6 +27,7 @@ def load_recording(folder):
     df = pd.merge(acc, gyr.drop(columns="seconds_elapsed"), on="time", how="inner")
     df = df.sort_values("time").drop_duplicates("time")
 
+    # timestamps jitter a bit, so interpolate onto an exact 100 Hz grid
     t = (df["time"].values - df["time"].values[0]) / 1e9
     grid = np.arange(TRIM, t[-1] - TRIM, 1 / FS)
     out = pd.DataFrame({"timestamp": df["time"].values[0] + (grid * 1e9).astype("int64"),
