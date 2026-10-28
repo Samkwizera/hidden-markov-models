@@ -14,7 +14,7 @@ A Gaussian HMM written from scratch in numpy (Baum–Welch training, Viterbi dec
 | `hmm.py` | `GaussianHMM` class: supervised init, scaled forward–backward, Baum–Welch, Viterbi |
 | `hmm_activity_recognition.ipynb` | full pipeline: features, training, visualisations, evaluation |
 | `figures/` | figures and metrics table used in the report |
-| `report.md` | project report |
+| `report.pdf` | project report (5 pages) |
 
 CSV columns: `timestamp` (ns), `seconds_elapsed`, `acc_x/y/z` (m/s², gravity removed), `gyro_x/y/z` (rad/s), `label`.
 
