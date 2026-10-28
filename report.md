@@ -1,6 +1,6 @@
 # Modeling Human Activity States Using Hidden Markov Models
 
-**Student:** Samuel Kwizera Ihimbazwe  **Repository:** _[GitHub link]_
+**Student:** Samuel Kwizera Ihimbazwe  **Repository:** https://github.com/Samkwizera/hidden-markov-models
 
 ## 1. Background and Motivation
 
@@ -32,7 +32,14 @@ gyroscope (rad/s), held at waist level.
 
 Every activity exceeds the 1 min 30 s minimum. Four further files were held out for testing (Section 5).
 
-**Videos.** Standing: _[link]_ · Walking: _[link]_ · Jumping: _[link]_ · Still: _[link]_
+**Videos** (full body, face visible, phone recording each activity):
+
+| Activity | Video |
+|---|---|
+| Standing | https://drive.google.com/file/d/1YgA6UkHaGOPdqqx5GI96xit061Aif5J6/view?usp=sharing |
+| Walking | https://drive.google.com/file/d/1x27T9-VPxknB-DW4e_CIrS3akjHLhK4d/view?usp=sharing |
+| Jumping | https://drive.google.com/file/d/1fWQBKvB6WefJN4QSezeShmdJOlVRR3uY/view?usp=sharing |
+| Still | https://drive.google.com/file/d/1DGSEliRQ-BV2BMIkxrYEzLXstcKhLoSF/view?usp=sharing |
 
 **Cleaning** (`prepare_data.py`):
 1. Accelerometer and gyroscope merged on their shared nanosecond timestamp; duplicates dropped.
