@@ -10,7 +10,14 @@ I made it with my grandmother in mind. She lives in the Western Province of Rwan
 
 I recorded everything myself with Sensor Logger on an iPhone X at 100 Hz, holding the phone at waist level: 14 clips of 5 to 10 s for each activity (standing, walking, jumping, still), so about 2 minutes per activity. For testing I kept 4 unseen files: three continuous recordings that go through all four activities in one go, and a standing clip from a different day.
 
-Videos of the recordings: [standing](https://drive.google.com/file/d/1YgA6UkHaGOPdqqx5GI96xit061Aif5J6/view?usp=sharing), [walking](https://drive.google.com/file/d/1x27T9-VPxknB-DW4e_CIrS3akjHLhK4d/view?usp=sharing), [jumping](https://drive.google.com/file/d/1fWQBKvB6WefJN4QSezeShmdJOlVRR3uY/view?usp=sharing), [still](https://drive.google.com/file/d/1DGSEliRQ-BV2BMIkxrYEzLXstcKhLoSF/view?usp=sharing).
+Videos of the recordings:
+
+| Activity | Video |
+|---|---|
+| Standing | [Google Drive](https://drive.google.com/file/d/1YgA6UkHaGOPdqqx5GI96xit061Aif5J6/view?usp=sharing) |
+| Walking | [Google Drive](https://drive.google.com/file/d/1x27T9-VPxknB-DW4e_CIrS3akjHLhK4d/view?usp=sharing) |
+| Jumping | [Google Drive](https://drive.google.com/file/d/1fWQBKvB6WefJN4QSezeShmdJOlVRR3uY/view?usp=sharing) |
+| Still | [Google Drive](https://drive.google.com/file/d/1DGSEliRQ-BV2BMIkxrYEzLXstcKhLoSF/view?usp=sharing) |
 
 ## How it works
 
